@@ -6,18 +6,19 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
 
 // Your web app's Firebase configuration
+// These values will be securely provided by the hosting service (Netlify) during deployment.
 const firebaseConfig = {
-  apiKey: "AIzaSyC-MMY5xaHGH1o3cvyikxA5SXeet8CYhRg",
-  authDomain: "indiemarket-eed6a.firebaseapp.com",
-  projectId: "indiemarket-eed6a",
-  storageBucket: "indiemarket-eed6a.firebasestorage.app",
-  messagingSenderId: "912038487275",
-  appId: "1:912038487275:web:db4c09d51885bd17a2caae"
+  apiKey:            import.meta.env.VITE_API_KEY,
+  authDomain:        import.meta.env.VITE_AUTH_DOMAIN,
+  projectId:         import.meta.env.VITE_PROJECT_ID,
+  storageBucket:     import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId:             import.meta.env.VITE_APP_ID
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize and EXPORT Firebase services so other files can use them.
+// Initialize and EXPORT Firebase services
 export const auth = getAuth(app);
 export const db = getFirestore(app);
