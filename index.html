@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndieMarket - Handcrafted Goods</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
+    <header id="main-header">
+    <nav class="container">
+        <a href="/" class="logo">IndieMarket</a>
+        <div class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="/#products-section">Products</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                <li id="mobile-orders-link" class="hidden"><a href="/orders.html">My Orders</a></li>
+                <li><a href="/wishlist.html">Wishlist</a></li>
+                <li id="admin-link" class="hidden"><a href="/admin.html" class="nav-link-item">Admin</a></li>
+            </ul>
+        </div>
+        <div id="auth-container">
+            <button id="login-modal-btn" class="btn btn-primary">Login</button>
+            <div id="user-profile" class="hidden">
+                <span id="user-email"></span>
+                <!--<a href="/orders.html" class="nav-link-item">My Orders</a>
+                <a href="/wishlist.html" class="nav-link-item">Wishlist</a>-->
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </nav>
+</header>
+
+    <section id="hero">
+            <div class="container">
+                <div class="hero-content slide-in-left">
+                    <h1>Discover Unique, Locally-Sourced Goods.</h1>
+                    <p>Your one-stop shop for handcrafted products from independent artisans. Each piece tells a story and supports creative communities.</p>
+                    
+                    <div class="search-container">
+                        <input type="search" id="search-input" placeholder="Search for products...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item"><span class="stat-value">500+</span><span class="stat-label">Artisans</span></div>
+                        <div class="stat-item"><span class="stat-value">2K+</span><span class="stat-label">Products</span></div>
+                        <div class="stat-item"><span class="stat-value">98%</span><span class="stat-label">Happy Customers</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section id="products-section">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div id="product-grid" class="product-grid">
+                </div>
+        </div>
+    </section>
+    
+    <template id="product-card-template">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="" alt="Product Image" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-actions">
+                            <button class="action-btn add-to-cart-btn" title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="action-btn wishlist-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Product Name</h3>
+                    <p class="product-price">₹0</p>
+                </div>
+            </div>
+        </template>
+
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>IndieMarket was born from a passion for connecting talented artisans with customers who appreciate unique, handcrafted goods. We believe every product tells a story and every purchase supports a dream.</p>
+                    <div class="features">
+                        <div class="feature"><div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div><h3>Handcrafted</h3><p>Each item is carefully created with love and attention to detail.</p></div>
+                        <div class="feature"><div class="feature-icon"><i class="fas fa-truck"></i></div><h3>Fast Shipping</h3><p>We deliver your favorite products quickly and safely.</p></div>
+                        <div class="feature"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Secure Payments</h3><p>Your transactions are protected with industry-standard security.</p></div>
+                        <div class="feature"><div class="feature-icon"><i class="fas fa-leaf"></i></div><h3>Eco-Friendly</h3><p>We prioritize sustainable materials and processes.</p></div>
+                    </div>
+                </div>
+                <div class="about-image slide-in-right">
+    <img src="https://plus.unsplash.com/premium_photo-1661380954234-13d98a83577c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXJ0aXNhbnxlbnwwfHwwfHx8MA%3D%3D" alt="Artisan at work">
+</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div class="container">
+            <div class="newsletter-content fade-in">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for new product alerts, exclusive offers, and artisan stories.</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+    <h4>IndieMarket</h4>
+    <p>Your marketplace for unique, handcrafted products from independent artisans.</p>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-pinterest"></i></a>
+    </div>
+</div>
+                <div class="footer-section"><h4>Quick Links</h4><ul><li><a href="#products">Products</a></li><li><a href="#about">About Us</a></li><li><a href="/cart.html">Shopping Cart</a></li><li><a href="/orders.html">My Orders</a></li></ul></div>
+                <div class="footer-section"><h4>Support</h4><ul><li><a href="#">Contact Us</a></li><li><a href="#">FAQ</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Returns & Refunds</a></li></ul></div>
+                <!--<div class="footer-section"><h4>Newsletter</h4><p>Subscribe to get special offers and once-in-a-lifetime deals.</p><form class="footer-newsletter"><input type="email" placeholder="Your email address"><button type="submit" class="btn btn-primary">Subscribe</button></form></div>-->
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 IndieMarket. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+    
+    <div id="auth-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <div class="auth-forms">
+                <form id="login-form"><h2>Login</h2><p class="form-error" id="login-error"></p><div class="form-group"><label for="login-email">Email</label><input type="email" id="login-email" required></div><div class="form-group"><label for="login-password">Password</label><input type="password" id="login-password" required></div><button type="submit" class="btn btn-primary">Login</button><p class="form-switcher">Don't have an account? <a href="#" id="show-register">Register</a></p></form>
+                <form id="register-form" class="hidden"><h2>Register</h2><p class="form-error" id="register-error"></p><div class="form-group"><label for="register-email">Email</label><input type="email" id="register-email" required></div><div class="form-group"><label for="register-password">Password</label><input type="password" id="register-password" minlength="6" required></div><button type="submit" class="btn btn-primary">Register</button><p class="form-switcher">Already have an account? <a href="#" id="show-login">Login</a></p></form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js" type="module"></script>
+    <script src="js/firebase-config.js" type="module"></script>
+    <script src="js/global.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - IndieMarket</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header id="main-header">
+    <nav class="container">
+        <a href="/" class="logo">IndieMarket</a>
+        <div class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="/#products-section">Products</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                <li id="mobile-orders-link" class="hidden"><a href="/orders.html">My Orders</a></li>
+                <li><a href="/wishlist.html">Wishlist</a></li>
+            </ul>
+        </div>
+        <div id="auth-container">
+            <button id="login-modal-btn" class="btn btn-primary">Login</button>
+            <div id="user-profile" class="hidden">
+                <span id="user-email"></span>
+                <!--<a href="/orders.html" class="nav-link-item">My Orders</a>
+                <a href="/wishlist.html" class="nav-link-item">Wishlist</a>-->
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </nav>
+</header>
+
+    <!-- Main Content Area -->
+    <main>
+        <section id="orders-section" class="container">
+            <h1 class="section-title">My Orders</h1>
+            <div id="orders-container">
+                <!-- Orders will be dynamically rendered here -->
+                <p>Loading your orders...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- A template for our order card -->
+    <template id="order-card-template">
+        <div class="order-card">
+            <div class="order-header">
+                <div>
+                    <h3 class="order-id">Order ID: <span></span></h3>
+                    <p class="order-date">Placed on: <span></span></p>
+                </div>
+                <div class="order-total">
+                    <p>Total: <span></span></p>
+                </div>
+            </div>
+            <div class="order-items">
+                <!-- Items will be inserted here -->
+            </div>
+        </div>
+    </template>
+
+    <!-- Footer Section -->
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; 2025 IndieMarket. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js" type="module"></script>
+
+    <!-- Our Custom Scripts -->
+    <script src="js/orders.js" type="module"></script>
+<script src="js/firebase-config.js" type="module"></script>
+<script src="js/global.js" type="module"></script>
+</body>
+</html>

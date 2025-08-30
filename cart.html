@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - IndieMarket</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header id="main-header">
+    <nav class="container">
+        <a href="/" class="logo">IndieMarket</a>
+        <div class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="/#products-section">Products</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                <li id="mobile-orders-link" class="hidden"><a href="/orders.html">My Orders</a></li>
+                <li><a href="/wishlist.html">Wishlist</a></li>
+            </ul>
+        </div>
+        <div id="auth-container">
+            <button id="login-modal-btn" class="btn btn-primary">Login</button>
+            <div id="user-profile" class="hidden">
+                <span id="user-email"></span>
+                <!--<a href="/orders.html" class="nav-link-item">My Orders</a>
+                <a href="/wishlist.html" class="nav-link-item">Wishlist</a>-->
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </nav>
+</header>
+    <!-- Main Content Area -->
+    <main>
+        <section id="cart-section" class="container">
+            <h1 class="section-title">Your Shopping Cart</h1>
+            <div id="cart-items-container">
+                <!-- Cart items will be dynamically rendered here -->
+            </div>
+            <div id="cart-summary" class="hidden">
+                <h2 class="cart-total">Total: ₹<span id="cart-total-price">0.00</span></h2>
+                <button id="checkout-btn" class="btn btn-primary">Proceed to Checkout</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- A template for our cart item -->
+    <template id="cart-item-template">
+        <div class="cart-item">
+            <img src="" alt="Product Image" class="cart-item-image">
+            <div class="cart-item-details">
+                <h3 class="cart-item-name">Product Name</h3>
+                <p class="cart-item-price">₹0</p>
+            </div>
+            <div class="cart-item-actions">
+    <input type="number" class="cart-item-quantity" value="1" min="1">
+    
+    <button class="btn remove-item-btn">
+        <span class="remove-text">Remove</span>
+        <i class="fas fa-trash-alt remove-icon"></i>
+    </button>
+</div>
+        </div>
+    </template>
+
+    <!-- Footer Section -->
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; 2025 IndieMarket. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Our Custom Scripts -->
+    <script src="js/cart.js" type="module"></script>
+    <script src="js/global.js" type="module"></script>
+    
+</body>
+</html>

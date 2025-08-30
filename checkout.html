@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - IndieMarket</title>
+    
+    <!-- Font and CSS links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- PayPal SDK Script with your Sandbox Client ID -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AYZQdzpc5hsLA2aXlUzeE2oVXnC4olELcINRiNiUbFKcg-SNJxUAdu1P3aqxnj4kjG0x3w2ghM7Ok-KN&currency=USD"></script>
+
+</head>
+<body>
+
+    <header id="main-header">
+        <nav class="container">
+            <a href="/" class="logo">IndieMarket</a>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="/#products-section">Products</a></li>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li id="mobile-orders-link" class="hidden"><a href="/orders.html">My Orders</a></li>
+                    <li><a href="/wishlist.html">Wishlist</a></li>
+                    <li id="admin-link" class="hidden"><a href="/admin.html" class="nav-link-item">Admin</a></li>
+                </ul>
+            </div>
+            <div id="auth-container">
+                <button id="login-modal-btn" class="btn btn-primary">Login</button>
+                <div id="user-profile" class="hidden">
+                    <span id="user-email"></span>
+                    <button id="logout-btn" class="btn btn-secondary">Logout</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="checkout-section" class="container">
+            <h1 class="section-title">Checkout</h1>
+            <div class="checkout-layout">
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div id="summary-items-container"><p>Loading cart...</p></div>
+                    <p class="summary-total">
+                        <strong>Total:</strong> 
+                        <span id="summary-total-price">₹0.00</span>
+                    </p>
+                </div>
+
+                <!-- Shipping and Payment -->
+                <div class="shipping-info">
+                    <h2>Shipping Information</h2>
+                    <form id="shipping-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                    </form>
+                    
+                    <!-- NEW: Payment Method Selector -->
+                    <div class="payment-method-selector">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1rem;">Payment Method</h2>
+                        <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+                            <input type="radio" id="paypal-option" name="payment-method" value="paypal" checked>
+                            <label for="paypal-option">PayPal</label>
+                        </div>
+                        <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+                            <input type="radio" id="cod-option" name="payment-method" value="cod">
+                            <label for="cod-option">Cash on Delivery (COD)</label>
+                        </div>
+                    </div>
+                    
+                    <!-- This div is where the payment buttons will be rendered -->
+                    <div id="payment-container" style="margin-top: 20px;">
+                        <div id="paypal-button-container">
+                            <p>Verifying user, please wait...</p>
+                        </div>
+                        <button id="cod-button" class="btn btn-primary btn-full hidden">Place Order (COD)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; 2025 IndieMarket. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- All scripts are loaded at the bottom with corrected absolute paths -->
+    <script src="/js/firebase-config.js" type="module"></script>
+    <script src="/js/global.js" type="module"></script>
+    <script src="/js/checkout.js" type="module"></script> 
+</body>
+</html>
+

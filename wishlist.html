@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - IndieMarket</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Use the same consistent header -->
+    <header id="main-header">
+    <nav class="container">
+        <a href="/" class="logo">IndieMarket</a>
+        <div class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="/#products-section">Products</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                <li id="mobile-orders-link" class="hidden"><a href="/orders.html">My Orders</a></li>
+                <li><a href="/wishlist.html">Wishlist</a></li>
+            </ul>
+        </div>
+        <div id="auth-container">
+            <button id="login-modal-btn" class="btn btn-primary">Login</button>
+            <div id="user-profile" class="hidden">
+                <span id="user-email"></span>
+                <!--<a href="/orders.html" class="nav-link-item">My Orders</a>
+                <a href="/wishlist.html" class="nav-link-item">Wishlist</a>-->
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </nav>
+</header>
+
+    <main>
+        <section id="wishlist-section" class="container">
+            <h1 class="section-title">My Wishlist</h1>
+            <div id="wishlist-grid" class="product-grid">
+                <!-- Wishlisted products will be dynamically rendered here -->
+                <p>Loading your wishlist...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- We reuse the same product card template from the homepage -->
+    <template id="product-card-template">
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="" alt="Product Image" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-actions">
+                        <button class="action-btn add-to-cart-btn" title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
+                        <button class="action-btn wishlist-btn active" title="Remove from Wishlist"><i class="fas fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Product Name</h3>
+                <p class="product-price">₹0</p>
+            </div>
+        </div>
+    </template>
+
+    <footer id="main-footer">
+         <!-- ... your footer ... -->
+    </footer>
+
+    <!-- SDK & Custom Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js" type="module"></script>
+    <script src="js/firebase-config.js" type="module"></script>
+    <script src="js/global.js" type="module"></script>
+    <script src="js/wishlist.js" type="module"></script>
+</body>
+</html>
